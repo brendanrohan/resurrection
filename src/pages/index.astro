@@ -1,17 +1,271 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+
+	<!-- Header / Navigation -->
+	<header class="sticky top-0 z-10 bg-white border-b border-gray-200">
+		<nav class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+			<!-- Logo -->
+			<a href="/" aria-label="Home" class="text-xl hover:opacity-70 transition-opacity">👋</a>
+
+			<!-- Nav links -->
+			<ul class="flex gap-6 text-sm font-medium text-gray-600">
+				<li><a href="#about" class="hover:text-gray-900 transition-colors">About</a></li>
+				<li><a href="#projects" class="hover:text-gray-900 transition-colors">Projects</a></li>
+				<li><a href="#writings" class="hover:text-gray-900 transition-colors">Writings</a></li>
+				<li><a href="#contact" class="hover:text-gray-900 transition-colors">Contact</a></li>
+			</ul>
+
+			<!-- Dark mode toggle -->
+			<button id="theme-toggle" aria-label="Toggle dark mode" class="text-gray-600 hover:text-gray-900 transition-colors">
+				<svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+					<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+				</svg>
+				<svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+				</svg>
+			</button>
+		</nav>
+	</header>
+
+	<script>
+		const toggle = document.getElementById('theme-toggle');
+		const sun = document.getElementById('icon-sun');
+		const moon = document.getElementById('icon-moon');
+
+		toggle?.addEventListener('click', () => {
+			document.documentElement.classList.toggle('dark');
+			sun?.classList.toggle('hidden');
+			moon?.classList.toggle('hidden');
+		});
+	</script>
+
+	<main class="max-w-4xl mx-auto px-6">
+
+		<!-- Section 1: Hero -->
+		<section id="hero" class="py-20 border-b border-gray-200">
+			<div class="flex items-center gap-12">
+				<div class="max-w-md pr-8">
+
+					<h1 class="text-3xl font-bold text-gray-900 mb-4">Hi, I'm Brendan</h1>
+					<p class="text-base text-gray-700 mb-2">
+						I'm a <strong>UX designer</strong> that helps organizations turn emerging technology into experiences people actually use.
+					</p>
+					<p class="text-base text-gray-600 mb-8">
+						I've spent 15 years figuring out what new technology means for the people who use it, and for the organizations that need to deliver it.
+					</p>
+					<a
+						href="https://docs.google.com/document/d/1jSbu9scsvpdFrB1LEYqvfuV2mvgeCqSoAZvcGw_S0Y8/edit?usp=sharing"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="inline-flex items-center gap-2 bg-gray-900 text-white text-sm font-medium px-5 py-3 rounded-full hover:bg-gray-700 transition-colors"
+					>
+						Download Resume
+						<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+						</svg>
+					</a>
+				</div>
+				<div class="shrink-0">
+					<img
+						src="/images/profile_sketch_portrait.png"
+						alt="Brendan Rohan"
+						class="w-40 h-40 object-cover grayscale"
+					/>
+				</div>
+			</div>
+		</section>
+
+		<!-- Section 2: About -->
+		<section id="about" class="py-16 border-b border-gray-200">
+			<!-- Tab labels -->
+			<div class="flex gap-8 mb-10">
+				<button data-tab="early-adopter" class="about-tab text-sm font-medium pb-1 transition-colors text-gray-900 border-b-2 border-gray-900">Early Adopter</button>
+				<button data-tab="systems-thinker" class="about-tab text-sm font-medium pb-1 transition-colors text-gray-400 border-b-2 border-transparent">Systems Thinker</button>
+				<button data-tab="collaborator" class="about-tab text-sm font-medium pb-1 transition-colors text-gray-400 border-b-2 border-transparent">Collaborate & Translate</button>
+			</div>
+
+			<!-- Tab content -->
+			<div id="tab-early-adopter" class="about-panel">
+				<p class="text-2xl font-medium text-gray-900 leading-snug max-w-2xl mb-10">
+					I've built for voice, mobile, and AI before they were trends. Curiosity about what's coming next isn't a side interest — it's how I've always worked.
+				</p>
+				<a href="#about" class="inline-flex items-center gap-2 border border-gray-300 text-gray-700 text-sm px-5 py-3 hover:border-gray-900 hover:text-gray-900 transition-colors">
+					find out more about me
+				</a>
+			</div>
+
+			<div id="tab-systems-thinker" class="about-panel hidden">
+				<p class="text-2xl font-medium text-gray-900 leading-snug max-w-2xl mb-10">
+					Changes to one touchpoint can affect everything. I map those connections first, so design decisions account for what happens downstream.
+				</p>
+				<a href="#about" class="inline-flex items-center gap-2 border border-gray-300 text-gray-700 text-sm px-5 py-3 hover:border-gray-900 hover:text-gray-900 transition-colors">
+					find out more about me
+				</a>
+			</div>
+
+			<div id="tab-collaborator" class="about-panel hidden">
+				<p class="text-2xl font-medium text-gray-900 leading-snug max-w-2xl mb-10">
+					The hardest part of enterprise design isn't the interface — it's getting researchers, engineers, product owners, and business leads to a shared understanding of what to build. That's where I add the most value.
+				</p>
+				<a href="#about" class="inline-flex items-center gap-2 border border-gray-300 text-gray-700 text-sm px-5 py-3 hover:border-gray-900 hover:text-gray-900 transition-colors">
+					find out more about me
+				</a>
+			</div>
+		</section>
+
+		<script>
+			const tabs = document.querySelectorAll<HTMLButtonElement>('.about-tab');
+			const panels = document.querySelectorAll<HTMLElement>('.about-panel');
+
+			tabs.forEach(tab => {
+				tab.addEventListener('click', () => {
+					const target = tab.dataset.tab;
+
+					tabs.forEach(t => {
+						t.classList.remove('text-gray-900', 'border-gray-900');
+						t.classList.add('text-gray-400', 'border-transparent');
+					});
+					tab.classList.add('text-gray-900', 'border-gray-900');
+					tab.classList.remove('text-gray-400', 'border-transparent');
+
+					panels.forEach(p => p.classList.add('hidden'));
+					document.getElementById(`tab-${target}`)?.classList.remove('hidden');
+				});
+			});
+		</script>
+
+		<!-- Section 3: Projects -->
+		<section id="projects" class="py-16 border-b border-gray-200">
+			<div class="space-y-20">
+
+				<!-- Project 1: AT&T -->
+				<div class="flex items-start gap-12">
+					<div class="flex-1">
+						<p class="text-xs font-medium tracking-widest text-gray-400 uppercase mb-2">AT&T</p>
+						<h3 class="text-2xl font-bold text-gray-900 mb-4">Personalizing the Mobile Experience</h3>
+						<p class="text-base text-gray-600 mb-6">Married customer intent and data to transform AT&T's shopping experience to better reflect how customers wanted to buy mobile plans and phones.</p>
+						<div class="flex gap-2 mb-10 flex-wrap">
+							<span class="bg-gray-100 text-gray-600 text-xs px-3 py-2">end-to-end</span>
+							<span class="bg-gray-100 text-gray-600 text-xs px-3 py-2">personalization</span>
+							<span class="bg-gray-100 text-gray-600 text-xs px-3 py-2">generative ai</span>
+						</div>
+						<a href="#" class="text-sm text-gray-900 underline underline-offset-4 hover:text-gray-500 transition-colors">Read case study &rarr;</a>
+					</div>
+					<div class="w-80 shrink-0">
+						<img src="/images/att_ShoppersProfile.png" alt="AT&T Shopper Profile" class="w-full h-full object-cover" />
+					</div>
+				</div>
+
+				<!-- Project 2: Verizon -->
+				<div class="flex items-start gap-12">
+					<div class="flex-1">
+						<p class="text-xs font-medium tracking-widest text-gray-400 uppercase mb-2">Verizon</p>
+						<h3 class="text-2xl font-bold text-gray-900 mb-4">Number Transfer Redesign</h3>
+						<p class="text-base text-gray-600 mb-6">Transformed a fragmented, opaque process into one that is more transparent and customer-focused across retail, web, app, and IVR channels.</p>
+						<div class="flex gap-2 mb-10 flex-wrap">
+							<span class="bg-gray-100 text-gray-600 text-xs px-3 py-2">omnichannel</span>
+							<span class="bg-gray-100 text-gray-600 text-xs px-3 py-2">service design</span>
+							<span class="bg-gray-100 text-gray-600 text-xs px-3 py-2">ux research</span>
+						</div>
+						<a href="#" class="text-sm text-gray-900 underline underline-offset-4 hover:text-gray-500 transition-colors">Read case study &rarr;</a>
+					</div>
+					<div class="w-80 shrink-0">
+						<img src="/images/vz_NumberTransfer.png" alt="Verizon Number Transfer" class="w-full h-full object-cover" />
+					</div>
+				</div>
+
+				<!-- Project 3: xFinity -->
+				<div class="flex items-start gap-12">
+					<div class="flex-1">
+						<p class="text-xs font-medium tracking-widest text-gray-400 uppercase mb-2">xFinity</p>
+						<h3 class="text-2xl font-bold text-gray-900 mb-4">Conversational and Voice Interface</h3>
+						<p class="text-base text-gray-600 mb-6">Added a voice and conversational interface to an existing WiFi management app for easier access to the most-used features and troubleshooting flows.</p>
+						<div class="flex gap-2 mb-10 flex-wrap">
+							<span class="bg-gray-100 text-gray-600 text-xs px-3 py-2">voice ui</span>
+							<span class="bg-gray-100 text-gray-600 text-xs px-3 py-2">conversational design</span>
+							<span class="bg-gray-100 text-gray-600 text-xs px-3 py-2">mobile</span>
+						</div>
+						<a href="#" class="text-sm text-gray-900 underline underline-offset-4 hover:text-gray-500 transition-colors">Read case study &rarr;</a>
+					</div>
+					<div class="w-80 shrink-0">
+						<img src="/images/xfi_ConversationalDesign.png" alt="xFinity Conversational Design" class="w-full h-full object-cover" />
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- Section 4: Writings -->
+		<section id="writings" class="py-16 border-b border-gray-200">
+			<div class="grid grid-cols-2 gap-8">
+
+				<!-- Writing 1 -->
+				<a href="#" class="group block">
+					<h3 class="text-xl font-normal text-gray-900 mb-1 group-hover:text-gray-500 transition-colors">My AI Sabbatical</h3>
+					<p class="text-sm text-gray-600">How my thinking about work and life has changed based on recent life events.</p>
+				</a>
+
+				<!-- Writing 2 -->
+				<a href="#" class="group block">
+					<h3 class="text-xl font-normal text-gray-900 mb-1 group-hover:text-gray-500 transition-colors">Human in the Loop</h3>
+					<p class="text-sm text-gray-600">Riding the technological wave — This feels like the 3rd and most dramatic act in the evolution of the web and Internet</p>
+				</a>
+
+			</div>
+		</section>
+
+	</main>
+
+	<!-- Contact + Footer -->
+	<footer id="contact" class="bg-gray-100 mt-16">
+		<div class="max-w-4xl mx-auto px-6 py-16">
+			<div class="flex items-start justify-between gap-12">
+
+				<!-- Left: contact info -->
+				<div>
+					<h2 class="text-2xl font-bold text-gray-900 mb-6">Working on something complex?<br>Let's think it through together.</h2>
+					<a href="mailto:brendanrohan@gmail.com" class="block text-blue-600 hover:underline mb-2">brendanrohan@gmail.com</a>
+					<p class="text-gray-500 mb-8">(917) 318-1263</p>
+					<div class="flex items-center gap-5">
+						<!-- LinkedIn -->
+						<a href="https://www.linkedin.com/in/brendanrohan" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-gray-500 hover:text-gray-900 transition-colors">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+							</svg>
+						</a>
+						<!-- GitHub -->
+						<a href="https://github.com/brendanrohan" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-gray-500 hover:text-gray-900 transition-colors">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
+							</svg>
+						</a>
+						<!-- Substack -->
+						<a href="https://substack.com/@brohanyc" target="_blank" rel="noopener noreferrer" aria-label="Substack" class="text-gray-500 hover:text-gray-900 transition-colors">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+							</svg>
+						</a>
+					</div>
+				</div>
+
+				<!-- Right: confidentiality notice -->
+				<div class="flex items-start gap-3 max-w-xs text-sm text-gray-400 italic">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+						<circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+					</svg>
+					<p>All content on this site is confidential and shared only with prospective employers. By visiting this website you agree not to share, publish or disclose any content on this site.</p>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Copyright bar -->
+		<div class="border-t border-gray-200">
+			<p class="text-center text-xs tracking-widest uppercase text-gray-400 py-6">&copy; 2026 Brendan Rohan</p>
+		</div>
+	</footer>
+
+</BaseLayout>
