@@ -1,0 +1,76 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const caseStudies = await getCollection('case-studies');
+  return caseStudies.map(entry => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, client, role, duration, year, tags, excerpt } = entry.data;
+---
+
+<BaseLayout title={`${title} | Brendan Rohan`}>
+
+  <!-- Nav -->
+  <header class="sticky top-0 z-10 bg-white border-b border-gray-200">
+    <nav class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="text-xl hover:opacity-70 transition-opacity">👋</a>
+      <a href="/#projects" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">&larr; Back to projects</a>
+    </nav>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-6 py-16">
+
+    <!-- Header -->
+    <div class="mb-12">
+      <p class="text-xs font-medium tracking-widest text-gray-400 uppercase mb-3">{client}</p>
+      <h1 class="text-4xl font-bold text-gray-900 leading-tight mb-4">{title}</h1>
+      <p class="text-xl text-gray-600 mb-8">{excerpt}</p>
+
+      <!-- Meta row -->
+      <div class="flex flex-wrap gap-8 text-sm text-gray-500 border-t border-b border-gray-200 py-4 mb-8">
+        <div>
+          <span class="block text-xs uppercase tracking-widest text-gray-400 mb-1">Role</span>
+          {role}
+        </div>
+        <div>
+          <span class="block text-xs uppercase tracking-widest text-gray-400 mb-1">Duration</span>
+          {duration}
+        </div>
+        <div>
+          <span class="block text-xs uppercase tracking-widest text-gray-400 mb-1">Year</span>
+          {year}
+        </div>
+        <div>
+          <span class="block text-xs uppercase tracking-widest text-gray-400 mb-1">Tags</span>
+          <div class="flex flex-wrap gap-2">
+            {tags.map(tag => (
+              <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1">{tag}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Markdown content -->
+    <div class="prose">
+      <Content />
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-200 mt-16">
+    <div class="max-w-3xl mx-auto px-6 py-10 flex items-center justify-between">
+      <a href="/#projects" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">&larr; Back to projects</a>
+      <a href="/" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Home</a>
+    </div>
+  </footer>
+
+</BaseLayout>

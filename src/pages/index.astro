@@ -57,14 +57,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 						I've spent 15 years figuring out what new technology means for the people who use it, and for the organizations that need to deliver it.
 					</p>
 					<a
-						href="https://docs.google.com/document/d/1jSbu9scsvpdFrB1LEYqvfuV2mvgeCqSoAZvcGw_S0Y8/edit?usp=sharing"
+						href="/Brendan_Rohan_Resume_2026.pdf"
 						target="_blank"
 						rel="noopener noreferrer"
 						class="inline-flex items-center gap-2 bg-gray-900 text-white text-sm font-medium px-5 py-3 rounded-full hover:bg-gray-700 transition-colors"
 					>
-						Download Resume
+						View Resume
 						<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+							<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
 						</svg>
 					</a>
 				</div>
@@ -139,61 +139,55 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 		<!-- Section 3: Projects -->
 		<section id="projects" class="py-16 border-b border-gray-200">
-			<div class="space-y-20">
+			<div class="space-y-24">
 
 				<!-- Project 1: AT&T -->
-				<div class="flex items-start gap-12">
-					<div class="flex-1">
-						<p class="text-xs font-medium tracking-widest text-gray-400 uppercase mb-2">AT&T</p>
-						<h3 class="text-2xl font-bold text-gray-900 mb-4">Personalizing the Mobile Experience</h3>
-						<p class="text-base text-gray-600 mb-6">Married customer intent and data to transform AT&T's shopping experience to better reflect how customers wanted to buy mobile plans and phones.</p>
-						<div class="flex gap-2 mb-10 flex-wrap">
-							<span class="bg-gray-100 text-gray-600 text-xs px-3 py-2">end-to-end</span>
-							<span class="bg-gray-100 text-gray-600 text-xs px-3 py-2">personalization</span>
-							<span class="bg-gray-100 text-gray-600 text-xs px-3 py-2">generative ai</span>
+				<a href="#" class="group flex items-center gap-16">
+					<div class="flex-1 max-w-md">
+						<h3 class="text-3xl font-normal text-gray-900 mb-6">Personalizing the Shopping Experience</h3>
+						<p class="text-lg text-gray-600 leading-relaxed mb-8">Combined customer intent and data to transform AT&T's shopping experience to better reflect how customers wanted to buy mobile plans and phones.</p>
+						<div class="flex gap-6 flex-wrap text-xs tracking-widest uppercase text-gray-400">
+							<span>End-to-End</span>
+							<span>Personalization</span>
+							<span>Generative AI</span>
 						</div>
-						<a href="#" class="text-sm text-gray-900 underline underline-offset-4 hover:text-gray-500 transition-colors">Read case study &rarr;</a>
 					</div>
-					<div class="w-80 shrink-0">
-						<img src="/images/att_ShoppersProfile.png" alt="AT&T Shopper Profile" class="w-full h-full object-cover" />
+					<div class="flex-1 bg-gray-100 rounded-2xl p-8 flex items-center justify-center">
+						<img src="/images/att_ShoppersProfile.png" alt="AT&T Shopper Profile" class="max-w-full max-h-80 object-contain group-hover:scale-[1.02] transition-transform duration-300" />
 					</div>
-				</div>
+				</a>
 
 				<!-- Project 2: Verizon -->
-				<div class="flex items-start gap-12">
-					<div class="flex-1">
-						<p class="text-xs font-medium tracking-widest text-gray-400 uppercase mb-2">Verizon</p>
-						<h3 class="text-2xl font-bold text-gray-900 mb-4">Number Transfer Redesign</h3>
-						<p class="text-base text-gray-600 mb-6">Transformed a fragmented, opaque process into one that is more transparent and customer-focused across retail, web, app, and IVR channels.</p>
-						<div class="flex gap-2 mb-10 flex-wrap">
-							<span class="bg-gray-100 text-gray-600 text-xs px-3 py-2">omnichannel</span>
-							<span class="bg-gray-100 text-gray-600 text-xs px-3 py-2">service design</span>
-							<span class="bg-gray-100 text-gray-600 text-xs px-3 py-2">ux research</span>
+				<a href="/case-studies/verizon-number-transfer" class="group flex items-center gap-16">
+					<div class="flex-1 max-w-md">
+						<h3 class="text-3xl font-normal text-gray-900 mb-6">Number Transfer Redesign</h3>
+						<p class="text-lg text-gray-600 leading-relaxed mb-8">Transformed a fragmented, opaque process into one that is more transparent and customer-focused across retail, web, app, and IVR channels.</p>
+						<div class="flex gap-6 flex-wrap text-xs tracking-widest uppercase text-gray-400">
+							<span>Omnichannel</span>
+							<span>Service Design</span>
+							<span>UX Research</span>
 						</div>
-						<a href="#" class="text-sm text-gray-900 underline underline-offset-4 hover:text-gray-500 transition-colors">Read case study &rarr;</a>
 					</div>
-					<div class="w-80 shrink-0">
-						<img src="/images/vz_NumberTransfer.png" alt="Verizon Number Transfer" class="w-full h-full object-cover" />
+					<div class="flex-1 bg-gray-100 rounded-2xl p-8 flex items-center justify-center">
+						<img src="/images/vz_NumberTransfer.png" alt="Verizon Number Transfer" class="max-w-full max-h-80 object-contain group-hover:scale-[1.02] transition-transform duration-300" />
 					</div>
-				</div>
+				</a>
 
 				<!-- Project 3: xFinity -->
-				<div class="flex items-start gap-12">
-					<div class="flex-1">
-						<p class="text-xs font-medium tracking-widest text-gray-400 uppercase mb-2">xFinity</p>
-						<h3 class="text-2xl font-bold text-gray-900 mb-4">Conversational and Voice Interface</h3>
-						<p class="text-base text-gray-600 mb-6">Added a voice and conversational interface to an existing WiFi management app for easier access to the most-used features and troubleshooting flows.</p>
-						<div class="flex gap-2 mb-10 flex-wrap">
-							<span class="bg-gray-100 text-gray-600 text-xs px-3 py-2">voice ui</span>
-							<span class="bg-gray-100 text-gray-600 text-xs px-3 py-2">conversational design</span>
-							<span class="bg-gray-100 text-gray-600 text-xs px-3 py-2">mobile</span>
+				<a href="#" class="group flex items-center gap-16">
+					<div class="flex-1 max-w-md">
+						<h3 class="text-3xl font-normal text-gray-900 mb-6">Conversational and Voice Interface</h3>
+						<p class="text-lg text-gray-600 leading-relaxed mb-8">Added a voice and conversational interface to an existing WiFi management app for easier access to the most-used features and troubleshooting flows.</p>
+						<div class="flex gap-6 flex-wrap text-xs tracking-widest uppercase text-gray-400">
+							<span>Voice UI</span>
+							<span>Conversational Design</span>
+							<span>Mobile</span>
 						</div>
-						<a href="#" class="text-sm text-gray-900 underline underline-offset-4 hover:text-gray-500 transition-colors">Read case study &rarr;</a>
 					</div>
-					<div class="w-80 shrink-0">
-						<img src="/images/xfi_ConversationalDesign.png" alt="xFinity Conversational Design" class="w-full h-full object-cover" />
+					<div class="flex-1 bg-gray-100 rounded-2xl p-8 flex items-center justify-center">
+						<img src="/images/xfi_ConversationalDesign.png" alt="xFinity Conversational Design" class="max-w-full max-h-80 object-contain group-hover:scale-[1.02] transition-transform duration-300" />
 					</div>
-				</div>
+				</a>
 
 			</div>
 		</section>
@@ -204,13 +198,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 				<!-- Writing 1 -->
 				<a href="#" class="group block">
-					<h3 class="text-xl font-normal text-gray-900 mb-1 group-hover:text-gray-500 transition-colors">My AI Sabbatical</h3>
+					<h3 class="text-xl font-normal text-gray-900 mb-1 group-hover:text-gray-500 transition-colors">My Mid-career sabbatical</h3>
 					<p class="text-sm text-gray-600">How my thinking about work and life has changed based on recent life events.</p>
 				</a>
 
 				<!-- Writing 2 -->
 				<a href="#" class="group block">
-					<h3 class="text-xl font-normal text-gray-900 mb-1 group-hover:text-gray-500 transition-colors">Human in the Loop</h3>
+					<h3 class="text-xl font-normal text-gray-900 mb-1 group-hover:text-gray-500 transition-colors">Human in the loop</h3>
 					<p class="text-sm text-gray-600">Riding the technological wave — This feels like the 3rd and most dramatic act in the evolution of the web and Internet</p>
 				</a>
 
